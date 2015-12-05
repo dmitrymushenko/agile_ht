@@ -1,0 +1,20 @@
+{
+  "name": "agile_ht",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Dmytro Mushenko <dmytromushenko@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/dmitrymushenko/agile_ht",
+  "moduleType": [
+    "es6"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
