@@ -9,11 +9,16 @@ var browserSync = require('browser-sync');
 var $ = require('gulp-load-plugins')();
 
 function webpack(watch, callback) {
+  var jshintFailOnErrors = !watch;
   var webpackOptions = {
     watch: watch,
     module: {
       preLoaders: [{ test: /\.js$/, exclude: /node_modules/, loader: 'jshint-loader'}],
       loaders: [{ test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'}]
+    },
+    jshint: {
+      emitErrors: jshintFailOnErrors,
+      failOnHint: jshintFailOnErrors
     },
     output: { filename: 'index.module.js' }
   };
