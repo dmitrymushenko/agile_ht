@@ -4,11 +4,13 @@ node_js:
 # branches:
 #   only:
 #     - angular
-before_script:
+before_install:
   - npm i -g bower
-  - npm i -g gulp
+install:
   - npm i
   - bower i
+before_script:
+  - npm i -g gulp
 script:
   - gulp test
   - gulp protractor:dist
