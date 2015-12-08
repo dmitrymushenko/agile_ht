@@ -1,18 +1,27 @@
 language: node_js
 node_js:
-  - "5.1.1"
-# branches:
-#   only:
-#     - angular
+- 5.1.1
 before_install:
-  - npm i -g bower
+- npm i -g bower
 install:
-  - npm i
-  - bower i
+- npm i
+- bower i
 before_script:
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-  - npm i -g gulp
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+- npm i -g gulp
 script:
-  - gulp test
-  - gulp protractor:dist --browser firefox
+- gulp test
+- gulp protractor:dist --browser firefox
+before_deploy:
+- gulp build
+deploy:
+  provider: s3
+  access_key_id:
+    secure: uGu7vOHLC6RcgSmYG+fyY6KS92OR3kFdqxav1FKynmH6dvicMRwPH3sMsy0XsfzJQ6isEf7GBmnhV+rTQgHJ8445Vf+DAVk+aPuKY+2cHUuRXlh+JoZRDDMk55bz9KUMrUqE3zulpIKei2/GaRMwLWetcJp9fGLeicxS8VIv57trhaA9G2vPk2BJtAXAr57YGuINhX/UV0Mx2Cqg9wHWbEdm3Ra9bcROJm4yzvAKasYosXWUGx/3T5N5WU50JzDSiEDDxT30Bf9FshVATKxxWiZM0Y6VJemDKuG8xEBdNwqs9ylErsCG6FFxmhG37UC999jEGEVMS69sRo0Jg9aLmxN/V6D+CGO5q1l+hDeKByIkGqhigmM27phHT6x+vr5o1jV1b1MBYbKSP7wf3Ja1CleGo7ZtXXccq5dPbgFKMVRNFYsICP7OV6qDPrfvLOt1vcdV8WML31y9IBkwl0+0zaUF4hwEFy5QXIfrFmvBFuANARYPtUO+mdPqeosW3B72suhy0PduEFjI2fBjfZAs8gGhgXa3/qLPrWcXYamuVouZL5+VQfn26XUJ7U/Pc4C8kmpprff9NBQ8x3ESu6c3VB/x29/xi5ygxvRJZN2s9lJK0saAf3Fv+RyyfYm4n3a4xNyeHwhURDz7/3ZylUzBiTFPbVrEuOGcFP08TjF9ccA=
+  secret_access_key:
+    secure: av2zTxqq7HhQD4s0NO+RUF+j3ObXH26JeDHVOMoH6nJopAFHh269PslqzTr3n2p/+qJog9MN0Fjqm1T/sP0MAqg6hUPy/ptwMMzulgENx/SZ2fAcTtbu9d3kK7i0VMCezuEIYdlYUHTOMcayNlbowr0AnjKecIaINWP3F653kL86POi9Cb9aDP8pUGlMdBjWGU9u4Wu7Xd3Z53OFgz/LucDfPUh+qGgW4Gz18alNPYceHO1XNm0o6MgtYt8Qa3vfPR7TcfA6lFTpGCSObZdU62sQAKKcAbKqoMUpWTE5/wutDnBPbITCXs5sVIKDGitW0wX+EDXb7xM6FTe9NdV9MeXeaYzPEiXm3XR3fCJxAZMQGtz0TIKzunfWfCxnmSE0xGnxfGuyxuKeQ4kMmYcFvnylpiBSysgCeRNrq0ZWnFoZRV+yf2mhcZpPWiqdUseH7XOdS0qdAfz96yUjB+yaey33t7c3ceJ33vKcwfZDnzgksWum+5Jn1Xc66nw9CCoaCX/C+vqr0WOENj6kIUkjghrkjObk0q98wdde2FZJVUWlhyclj7zvVtFT+GF8y/jgMlq2xkQcdABf9TPmjOFdLTdpWSuWea6lhHXWmrom6gQz4lFiGZnTz4ZERyH0JDCPZVGJYPcX/UKJd1ss4VeYGJKTPGujGTWXz0dSqDfr14Y=
+  bucket: agile-ht
+  acl: public_read
+  skip_cleanup: true
+  local_dir: dist
