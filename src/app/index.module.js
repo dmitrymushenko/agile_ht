@@ -23,4 +23,4 @@ angular.module('agileHt', ['ngAnimate', 'ngTouch', 'ui.router', 'ngMaterial'])
   .service('webDevTec', WebDevTecService)
   .controller('MainController', MainController)
   .directive('acmeNavbar', () => new NavbarDirective())
-  .directive('acmeMalarkey', () => new MalarkeyDirective(malarkey));
+  .directive('acmeMalarkey', () => new MalarkeyDirective(malarkey))
