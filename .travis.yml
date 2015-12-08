@@ -7,5 +7,6 @@ node_js:
 before_script:
   - npm i -g bower
   - npm i -g gulp
+install:
   - npm i
   - bower i
