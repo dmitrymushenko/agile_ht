@@ -10,6 +10,8 @@ install:
   - npm i
   - bower i
 before_script:
+  - export DISPLAY=:0
+  - xvfb start 
   - npm i -g gulp
 script:
   - gulp test
