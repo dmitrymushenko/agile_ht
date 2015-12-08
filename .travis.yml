@@ -8,3 +8,4 @@ before_script:
   - npm i -g bower
   - npm i -g gulp
   - npm i
+  - bower i
