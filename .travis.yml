@@ -15,4 +15,4 @@ before_script:
   - npm i -g gulp
 script:
   - gulp test
-  - gulp protractor:dist
+  - gulp protractor:dist --browser firefox
