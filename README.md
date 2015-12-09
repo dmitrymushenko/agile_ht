@@ -12,5 +12,29 @@ Build fails if:
 * JSHint fails
 * Unit tests fail
 * E2E tests fail
- 
+
 The last successful build can be found [here](http://agile-ht.s3-website-eu-west-1.amazonaws.com/)
+
+## Installation
+
+Clone the repo and run inside cloned folder
+```sh
+$ npm install
+```
+
+## Usage
+
+### Development
+```sh
+$ npm run dev
+```
+
+### Running tests
+```sh
+$ npm test
+```
+
+### Building the application
+```sh
+$ npm run build
+```
