@@ -11,8 +11,8 @@ function runTests (singleRun, done) {
     configFile: path.join(__dirname, '/../karma.conf.js'),
     singleRun: singleRun,
     autoWatch: !singleRun
-  }, function() {
-    done();
+  }, function(err) {
+    done(err);
   });
 }
 
