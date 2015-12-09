@@ -37,6 +37,9 @@ function webpack(watch, callback) {
       hash: false,
       version: false
     }));
+    if (stats.compilation.errors.length > 0) {
+      throw new Error('Compilation failed');
+    }
     browserSync.reload();
     if(watch) {
       watch = false;
